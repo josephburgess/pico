@@ -1,17 +1,3 @@
-# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
-if(WIN32)
-    set(USERHOME $ENV{USERPROFILE})
-else()
-    set(USERHOME $ENV{HOME})
-endif()
-set(sdkVersion 2.1.0)
-set(toolchainVersion 13_3_Rel1)
-set(picotoolVersion 2.1.0)
-set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
-if (EXISTS ${picoVscode})
-    include(${picoVscode})
-endif()
-# ====================================================================================
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -42,30 +28,30 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(button-blink C CXX ASM)
+project(on-off-switch C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(button-blink button-blink.c )
+add_executable(on-off-switch on-off-switch.c )
 
-pico_set_program_name(button-blink "button-blink")
-pico_set_program_version(button-blink "0.1")
+pico_set_program_name(on-off-switch "on-off-switch")
+pico_set_program_version(on-off-switch "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(button-blink 0)
-pico_enable_stdio_usb(button-blink 0)
+pico_enable_stdio_uart(on-off-switch 0)
+pico_enable_stdio_usb(on-off-switch 0)
 
 # Add the standard library to the build
-target_link_libraries(button-blink
+target_link_libraries(on-off-switch
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(button-blink PRIVATE
+target_include_directories(on-off-switch PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
 )
 
-pico_add_extra_outputs(button-blink)
+pico_add_extra_outputs(on-off-switch)
 
