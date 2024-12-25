@@ -19,7 +19,3 @@ A collection of small projects and experiments for the Raspberry Pi Pico using t
    cmake ..
    make
    ```
-
-3. Upload the `.uf2` file:
-   - Connect the Pico while holding **BOOTSEL**.
-   - Drag and drop the file from `build/` onto the Pico's USB drive.
